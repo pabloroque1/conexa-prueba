@@ -1,0 +1,47 @@
+version: '3.9'
+services:
+  # servicio de postgres
+  database:
+    image: postgres:latest
+    user: '0:0'
+    container_name: postgresql-bd
+    env_file: .env.local
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - conexa-net
+
+  # aplicacion de NestJS
+  api:
+    container_name: conexa-api
+    build:
+      dockerfile: Dockerfile
+      context: .
+      # Only will build development stage from our dockerfile
+      target: development
+    volumes:
+      - .:/usr/src/app
+    # Run a command against the development stage of the image
+    command: npm run start:debug
+    env_file: .env.local
+    ports:
+      - 8000:3000
+      - 9229:9229
+    tty: true
+    depends_on:
+      - database
+    networks:
+      - conexa-net
+
+volumes:
+  postgresql-data:
+
+networks:
+  conexa-net:
+    driver: bridge
