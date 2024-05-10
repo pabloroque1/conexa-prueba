@@ -10,6 +10,17 @@ $ Tener instalado docker y docker compose
 
 $ clonar repositorio
 
+$ Crear archivo .env.local en el repo clonado con estas variables para que el docker levante
+
+$ NODE_ENV=local
+$ DATABASE_TYPE=postgres
+$ DATABASE_HOST=host.docker.internal
+$ DATABASE_PORT=5432
+$ POSTGRES_USER=usuario
+$ POSTGRES_PASSWORD=pass
+$ POSTGRES_DB=ejemplodebase
+$ HOST=http://localhost:8000
+
 $ npm install
 
 $ correr el comando sh docker-redeploy.sh
