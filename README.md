@@ -19,18 +19,11 @@ $ Una vez levantado los contenedores probar endpoints
 
 ```
 
-## Running the app
+## Como probar la app
 
-```bash
+````bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
+$ En la carpeta del repositorio se encuentra la coleccion de postman con todos los endpoints, importarlos a postman.
 
 ## Test
 
@@ -38,7 +31,7 @@ $ npm run start:prod
 # unit tests
 $ npm run test: all
 
-```
+````
 
 ## Support
 
