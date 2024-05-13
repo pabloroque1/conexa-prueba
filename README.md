@@ -2,6 +2,21 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Support
+
+La app cuando arranca carga en base las peliculas traidas de la api de starwars con estos campos.
+{
+"episode_id":1,
+"director":"Juan Carlos",
+"producer":"pablo",
+"title":"Probando api nestjs",
+"release_date":"9/5/2024"
+}.
+Al crear un usuario se crea como usuario regular, se debe entrar a la base y cambiarle el rol a "admin"
+para poder hacer las peticiones solicitadas para ese rol.
+El volumen de la base de datos esta creado para windows, si se necesita para linux, podes reemplazar el volumen por este
+volumes: - postgresql-data:/var/lib/postgresql/data
+
 ## Installation
 
 ```bash
